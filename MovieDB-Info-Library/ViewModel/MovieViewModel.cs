@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieDB_Info_Library.Model
+namespace MovieDB_Info_Library.ViewModel
 {
-    class Movie
+    class MovieViewModel
     {
-        string Title;
-
     }
 }

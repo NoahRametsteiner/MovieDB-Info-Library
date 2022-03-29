@@ -18,3 +18,8 @@ C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\De
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.CopyComplete
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.exe
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.pdb
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
