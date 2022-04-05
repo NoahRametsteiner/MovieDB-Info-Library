@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Rechnungsverwaltung.ViewModel
+namespace MovieDB_Info_Library.ViewModel
 {
 	public class RelayCommand : ICommand
 	{

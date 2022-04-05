@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MovieDB_Info_Library.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:src="clr-namespace:MovieDB_Info_Library.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -14,23 +14,24 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Window.DataContext>
+        <src:MovieViewModel/>
+    </Window.DataContext>
     <Grid>
         <StackPanel>
             <materialDesign:Card Padding="32" Margin="16">
-                <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">TextBlock</TextBlock>
+                <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Text="{Binding Path=SearchTitle}"></TextBlock>
+            </materialDesign:Card>
+            <materialDesign:Card Padding="32" Margin="16">
+                <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Text="{Binding Path=ResultTitle, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
             </materialDesign:Card>
             <Button
                 Style="{StaticResource MaterialDesignPaperLightButton}"
-                Width="{StaticResource ButtonWidth}"
                 ToolTip="Resource name: MaterialDesignPaperLightButton"
                 Content="1. Button"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-            <Button
-                Style="{StaticResource MaterialDesignPaperLightButton}"
-                Width="{StaticResource ButtonWidth}"
-                ToolTip="Resource name: MaterialDesignPaperLightButton"
-                Content="2. Button"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                Command="{Binding Path =CallCommand}"/>
+            
         </StackPanel>
     </Grid>
 </Window>

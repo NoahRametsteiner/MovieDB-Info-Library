@@ -7,18 +7,28 @@ using System.Windows.Input;
 using MovieDB_Info_Library.ViewModel;
 using MovieDB_Info_Library.API;
 using MovieDB_Info_Library.Model;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace MovieDB_Info_Library.ViewModel
 {
-    class MovieViewModel
+    class MovieViewModel : INotifyPropertyChanged
     {
         #region Declarations
 
         public ICommand CallCommand { get; set; }
 
-        string SearchTitle { get; set; }
+        public string SearchTitle { get; set; }
         Movie Result { get; set; }
-
+        public string resultTitle;
+        public string ResultTitle {
+            get => resultTitle;
+            set
+            {
+                resultTitle = value;
+                RaisePropertyChanged();
+            }
+        }
         #endregion
 
         public MovieViewModel()
@@ -26,10 +36,19 @@ namespace MovieDB_Info_Library.ViewModel
 
             CallCommand = new RelayCommand(e =>
                 {
-                    Result = Call.APIcall(SearchTitle);
-
+                    Result = Call.APIcall(SearchTitle);         //API Call with Movie Title; Expect Movie
+                    ResultTitle = Result.Title;
                 }
 
             );
         }
+
+        #region PropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+    }
 }

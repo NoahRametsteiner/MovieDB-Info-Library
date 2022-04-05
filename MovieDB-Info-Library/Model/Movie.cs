@@ -8,7 +8,7 @@ namespace MovieDB_Info_Library.Model
 {
     class Movie
     {
-        string Title;
+        public string Title;
 
     }
 }
