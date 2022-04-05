@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:MovieDB_Info_Library"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="View/MainWindow.xaml">
-    <Application.Resources>
+    <Application.Resources> 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
