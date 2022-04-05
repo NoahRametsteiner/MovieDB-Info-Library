@@ -20,7 +20,7 @@ namespace MovieDB_Info_Library.ViewModel
 
         public string SearchTitle { get; set; }
         Movie Result { get; set; }
-        public string resultTitle;
+        private string resultTitle;
         public string ResultTitle {
             get => resultTitle;
             set
@@ -36,8 +36,8 @@ namespace MovieDB_Info_Library.ViewModel
 
             CallCommand = new RelayCommand(e =>
                 {
-                    Result = Call.APIcall(SearchTitle);         //API Call with Movie Title; Expect Movie
-                    ResultTitle = Result.Title;
+                    ResultTitle = Call.getTitle(SearchTitle);         //API Call with Movie Title; Expect Movie
+                    
                 }
 
             );

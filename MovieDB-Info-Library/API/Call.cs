@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using MovieDB_Info_Library.Model;
 
+
 namespace MovieDB_Info_Library.API
 {
     class Call
@@ -15,15 +16,22 @@ namespace MovieDB_Info_Library.API
         static Movie movie { get; set; }
         private const string URL = "https://www.omdbapi.com/";
         private const string APIKey = "?apikey=17c4065b";
+        
         public class DataObject
         {
             public string Title { get; set; }
+            public int Year { get; set; }
         }
+        public static string MovieTitle { get; set; }
+        public static string getTitle(string Title)
+        {
+            APIcallAsync(Title);
 
-        public static Movie APIcall(string Title)
+            return MovieTitle;
+        }
+        public static async void APIcallAsync(string Title)
         {
             string Search = "&t=";
-            Title = "Cars";
             string urlParameters;
 
 
@@ -35,15 +43,14 @@ namespace MovieDB_Info_Library.API
             new MediaTypeWithQualityHeaderValue("application/json"));
 
             // List data response.
-            HttpResponseMessage response = client.GetAsync(urlParameters).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+            HttpResponseMessage response = await client.GetAsync(urlParameters);  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+
             if (response.IsSuccessStatusCode)
             {
                 // Parse the response body.
-                var movieTest = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
-                foreach (var d in movieTest)
-                {
-                    Console.WriteLine("{0}", d.Title);
-                }
+                var movieTest = response.Content.ReadAsAsync<DataObject>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
+                MovieTitle = movieTest.Title;
+                
             }
             else
             {
@@ -54,7 +61,7 @@ namespace MovieDB_Info_Library.API
 
             // Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
             client.Dispose();
-            return movie;
+            
         }
 
     }

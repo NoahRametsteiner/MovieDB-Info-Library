@@ -22,6 +22,8 @@ C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\De
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\Newtonsoft.Json.xml
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\App.baml
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.g.cs
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.baml
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
