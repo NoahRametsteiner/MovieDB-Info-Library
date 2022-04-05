@@ -7,6 +7,7 @@ using System.Windows.Input;
 using MovieDB_Info_Library.ViewModel;
 using MovieDB_Info_Library.API;
 using MovieDB_Info_Library.Model;
+using Rechnungsverwaltung.ViewModel;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -32,4 +33,6 @@ namespace MovieDB_Info_Library.ViewModel
 
             );
         }
+    }
+
 }
