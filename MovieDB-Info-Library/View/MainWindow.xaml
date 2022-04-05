@@ -17,8 +17,20 @@
     <Grid>
         <StackPanel>
             <materialDesign:Card Padding="32" Margin="16">
-                <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">My First Material Design App</TextBlock>
+                <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">TextBlock</TextBlock>
             </materialDesign:Card>
+            <Button
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                Width="{StaticResource ButtonWidth}"
+                ToolTip="Resource name: MaterialDesignPaperLightButton"
+                Content="1. Button"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+            <Button
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                Width="{StaticResource ButtonWidth}"
+                ToolTip="Resource name: MaterialDesignPaperLightButton"
+                Content="2. Button"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
         </StackPanel>
     </Grid>
 </Window>
