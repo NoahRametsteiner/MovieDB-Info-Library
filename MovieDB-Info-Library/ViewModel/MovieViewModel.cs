@@ -8,5 +8,10 @@ namespace MovieDB_Info_Library.ViewModel
 {
     class MovieViewModel
     {
+        #region Declarations
+
+        
+
+        #endregion
     }
 }
