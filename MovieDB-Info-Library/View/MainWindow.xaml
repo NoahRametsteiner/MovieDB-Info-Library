@@ -19,7 +19,7 @@
     </Window.DataContext>
     <Grid x:Name="MovieDB">
         <Grid.Background>
-            #F6F6F6
+            <ImageBrush ImageSource="../image/background.jpg" Opacity="0.9" Stretch="Fill" />
         </Grid.Background>
 
         <Grid.RowDefinitions>
