@@ -26,9 +26,10 @@ namespace MovieDB_Info_Library.ViewModel
             set
             {
                 resultTitle = value;
-                RaisePropertyChanged();
+                RaisePropertyChanged(nameof(ResultTitle));
             }
         }
+        public Movie ResultMovie { get; set; }
         #endregion
 
         public MovieViewModel()
@@ -36,8 +37,8 @@ namespace MovieDB_Info_Library.ViewModel
 
             CallCommand = new RelayCommand(e =>
                 {
-                    ResultTitle = Call.getTitle(SearchTitle);         //API Call with Movie Title; Expect Movie
-                    
+                    ResultMovie = Call.APICall(SearchTitle);      //API Call with Movie Title; Expect Movie
+                    ResultTitle = ResultMovie.Title;
                 }
 
             );

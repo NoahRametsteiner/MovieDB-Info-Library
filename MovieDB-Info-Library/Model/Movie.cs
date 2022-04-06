@@ -9,6 +9,6 @@ namespace MovieDB_Info_Library.Model
     class Movie
     {
         public string Title;
-
+        public int Year;
     }
 }
