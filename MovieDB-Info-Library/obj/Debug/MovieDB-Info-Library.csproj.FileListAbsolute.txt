@@ -27,6 +27,12 @@ C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\De
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.g.cs
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.baml
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
+C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow.g.cs
+C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.g.cs
+C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\App.g.cs
+C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library_MarkupCompile.cache
+C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library_MarkupCompile.lref
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\MovieDB-Info-Library.exe.config
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\MovieDB-Info-Library.exe
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\MovieDB-Info-Library.pdb
@@ -39,13 +45,6 @@ C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
-C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow.g.cs
-C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.g.cs
-C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\App.g.cs
-C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library_MarkupCompile.cache
-C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library_MarkupCompile.lref
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\App.baml
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow.baml
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.baml
@@ -56,3 +55,4 @@ C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.CopyComplete
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.exe
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.pdb
+C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache

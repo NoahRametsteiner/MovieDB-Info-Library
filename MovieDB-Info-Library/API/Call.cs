@@ -14,11 +14,23 @@ namespace MovieDB_Info_Library.API
     class Call
     {
         public static Movie movie { get; set; }
+        public static Movie year { get; set; }
         private const string URL = "https://www.omdbapi.com/";
         private const string APIKey = "?apikey=17c4065b";
         
         public static string MovieTitle { get; set; }
+        public static int MovieYear { get; set; }
+        public static string MovieRated { get; set; }
+        public static string MovieRuntime { get; set; }
+        public static string MovieGenre { get; set; }
+        public static string MovieDirector { get; set; }
+        public static string MovieActors { get; set; }
+        public static string MoviePlot { get; set; }
+        public static String MovieLanguage { get; set; }
         
+
+
+
         public static Movie APICall(string Title)
         {
             string Search = "&t=";
@@ -40,8 +52,15 @@ namespace MovieDB_Info_Library.API
                 // Parse the response body.
                 movie = response.Content.ReadAsAsync<Movie>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
                 MovieTitle = movie.Title;
-                
-                
+                MovieYear = movie.Year;
+                MovieRated = movie.Rated;
+                MovieRuntime = movie.Runtime;
+                MovieGenre = movie.Genre;
+                MovieDirector = movie.Director;
+                MovieActors = movie.Actors;
+                MoviePlot = movie.Plot;
+                MovieLanguage = movie.Language;
+
             }
             else
             {

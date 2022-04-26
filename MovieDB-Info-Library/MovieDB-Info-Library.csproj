@@ -71,6 +71,7 @@
     </ApplicationDefinition>
     <Compile Include="API\Call.cs" />
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="ViewModel\Fav.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
