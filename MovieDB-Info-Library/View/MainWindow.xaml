@@ -112,6 +112,16 @@
             </materialDesign:Card>
         </StackPanel>
 
+        <Button Grid.Row="2" Grid.Column="0" 
+            
+            Foreground="#2F2F2F"
+            Background="#FFCB75"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonAssist.CornerRadius="10"
+            ToolTip="MaterialDesignRaisedButton with Round Corners"
+            IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="10,23,10,25" Click="Button_Click">
+            <TextBlock Text="Fav-List" Margin="0,0,10,0"/>
+        </Button>
         <Button Grid.Row="2" Grid.Column="3" 
             Command="{Binding Path =CallCommand}"
             Foreground="#2F2F2F"
@@ -119,7 +129,7 @@
             Style="{StaticResource MaterialDesignRaisedButton}"
             materialDesign:ButtonAssist.CornerRadius="10"
             ToolTip="MaterialDesignRaisedButton with Round Corners"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="10,23,10,25">
+            IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="10,23,10,25">
             <TextBlock Text="Search" Margin="0,0,10,0"/>
         </Button>
         <materialDesign:PackIcon Grid.Row="2" Grid.Column="3"  Kind="DatabaseSearch" Height="25" Width="25" Margin="115,29,0,0" />
@@ -130,7 +140,7 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="10"
                 ToolTip="MaterialDesignRaisedButton with Round Corners"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="30,23,25,25">
+                IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="30,23,25,25">
             <TextBlock Text="Fav" Margin="0,0,10,0"/>
         </Button>
         <materialDesign:PackIcon Grid.Row="2" Grid.Column="4"  Kind="FavoriteAdd" Height="25" Width="25" Margin="90,28,0,0" />

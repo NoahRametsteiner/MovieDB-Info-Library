@@ -26,7 +26,6 @@ C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\De
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\App.baml
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.g.cs
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.baml
-C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow.g.cs
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\MainWindow1.g.cs
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\App.g.cs
@@ -56,3 +55,5 @@ C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.exe
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.pdb
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\FavList.g.cs
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\FavList.baml

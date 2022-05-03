@@ -10,6 +10,7 @@ using MovieDB_Info_Library.Model;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -19,7 +20,20 @@ namespace MovieDB_Info_Library.ViewModel
 
         public ICommand CallCommand { get; set; }
         public ICommand CallFav { get; set; }
+        public ICommand MainPageCommand { get; set; }
+        public ICommand FavPageCommand { get; set; }
+        public ICommand DetailCommand { get; set; }
 
+        public List<Fav> favList = new List<Fav>();
+        public List<Fav> FavList {
+            get => favList;
+            set
+            {
+                favList = value;
+                RaisePropertyChanged(nameof(FavList));
+            }
+        }
+        public Boolean flag;
         public string SearchTitle { get; set; }
         Movie Result { get; set; }
         private string resultimdbID;
@@ -129,7 +143,8 @@ namespace MovieDB_Info_Library.ViewModel
 
         public MovieViewModel()
         {
-
+            
+            //Call API
             CallCommand = new RelayCommand(e =>
                 {
                     ResultMovie = Call.APICall(SearchTitle);      //API Call with Movie Title; Expect Movie
@@ -144,12 +159,49 @@ namespace MovieDB_Info_Library.ViewModel
                     ResultLanguage = ResultMovie.Language;
                 }
             );
+            //Call Favourites
             CallFav = new RelayCommand(e =>
                 {
                     ResultMovie = Call.APICall(SearchTitle);
-                    Fav.addFav(ResultMovie.Title, ResultMovie.imdbID);
+                    AddFav(ResultMovie.imdbID, ResultMovie.Title);
+                    
                 }
             );
+            MainPageCommand = new RelayCommand(e =>
+            {
+
+            });
+            FavPageCommand = new RelayCommand(e =>
+            {
+
+            });
+            DetailCommand = new RelayCommand(e =>
+            {
+                
+            });
+        }
+        //Call this functino to add Favourite to List
+        public void AddFav(string imDB, string Title)
+        {
+            Fav newFav = new Fav();
+            newFav.ImdbID = imDB;
+            newFav.Title = Title;
+            int i = 0;
+            for (i = 0; i <= favList.Count; i++)
+            {
+                if (i == favList.Count)
+                {
+                    favList.Add(newFav);
+                    RaisePropertyChanged();
+                    break;
+                }
+                if (favList[i].ImdbID == newFav.ImdbID)
+                {
+                    Console.WriteLine("Removed: " + favList[i]);
+                    favList.RemoveAt(i);
+                    break;
+                }
+            }
         }
 
 
@@ -159,6 +211,8 @@ namespace MovieDB_Info_Library.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+       
+    
         #endregion
     }
 }
