@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,33 +10,15 @@ namespace MovieDB_Info_Library.Model
 {
     class FavListe
     {
-        public List<Fav> favList;
-
-        public FavListe()
+        public ObservableCollection<Fav> FavList { get; set; } = new ObservableCollection<Fav>();
+        public static FavListe ConvertFromList(List<Fav> list)
         {
-            favList = new List<Fav>();
-        }
-
-        public void AddFav(string imDB, string Title)
-        {
-            Fav newFav = new Fav();
-            newFav.ImdbID = imDB;
-            newFav.Title = Title;
-            int i = 0;
-            for (i = 0; i <= favList.Count; i++)
+            return new FavListe
             {
-                if (i == favList.Count)
-                {
-                    favList.Add(newFav);
-                    break;
-                }
-                if (favList[i].ImdbID == newFav.ImdbID)
-                {
-                    Console.WriteLine("Removed: " + favList[i]);
-                    favList.RemoveAt(i);
-                    break;
-                }
-            }
+                FavList = new ObservableCollection<Fav>(list)
+            };
         }
+
+
     }
 }

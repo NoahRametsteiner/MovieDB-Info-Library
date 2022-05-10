@@ -145,6 +145,7 @@ namespace MovieDB_Info_Library.ViewModel
         {
 
             var ctx = new FavContext();
+            FavList = FavListe.ConvertFromList(ctx.Favs.ToList());
 
             //Call API
             CallCommand = new RelayCommand(e =>
@@ -164,12 +165,9 @@ namespace MovieDB_Info_Library.ViewModel
             //Call Favourites
             CallFav = new RelayCommand(e =>
                 {
-                    if (FavList == null)
-                    {
-                        FavList = new FavListe();
-                    }
+                    
                     ResultMovie = Call.APICall(SearchTitle);
-                    FavList.AddFav(ResultMovie.imdbID, ResultMovie.Title);
+                    AddFav(ResultMovie.imdbID, ResultMovie.Title);
                     
                 }
             );
@@ -188,7 +186,28 @@ namespace MovieDB_Info_Library.ViewModel
         }
         //Call this functino to add Favourite to List
         
+        public void AddFav(string imdbID, string title)
+        {
+            Fav newFav = new Fav()
+            {
+                ImdbID = imdbID,
+                Title = title
+            };
+            try
+            {
+                using (var ctx = new FavContext())
+                {
+                    ctx.Favs.Add(newFav);
+                    ctx.SaveChanges();
 
+                    FavList = FavListe.ConvertFromList(ctx.Favs.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

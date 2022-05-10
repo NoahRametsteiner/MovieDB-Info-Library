@@ -58,3 +58,7 @@ C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\FavList.g.cs
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\FavList.baml
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\EntityFramework.dll
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\EntityFramework.xml
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\EntityFramework.SqlServer.xml
