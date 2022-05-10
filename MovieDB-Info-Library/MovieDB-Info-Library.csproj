@@ -79,6 +79,7 @@
     </ApplicationDefinition>
     <Compile Include="API\Call.cs" />
     <Compile Include="Model\FavContext.cs" />
+    <Compile Include="Model\FavInitializer.cs" />
     <Compile Include="Model\FavListe.cs" />
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\Fav.cs" />
