@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MovieDB_Info_Library.Model;
 using MovieDB_Info_Library.ViewModel;
 
-namespace MovieDB_Info_Library.ViewModel
+namespace MovieDB_Info_Library.Model
 {
     class Fav
     {

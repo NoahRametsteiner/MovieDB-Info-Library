@@ -70,8 +70,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="API\Call.cs" />
+    <Compile Include="Model\FavListe.cs" />
     <Compile Include="Model\Movie.cs" />
-    <Compile Include="ViewModel\Fav.cs" />
+    <Compile Include="Model\Fav.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\FavList.xaml.cs">

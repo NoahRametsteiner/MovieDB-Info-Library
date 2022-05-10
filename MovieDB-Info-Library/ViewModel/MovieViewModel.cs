@@ -24,8 +24,8 @@ namespace MovieDB_Info_Library.ViewModel
         public ICommand FavPageCommand { get; set; }
         public ICommand DetailCommand { get; set; }
 
-        public List<Fav> favList = new List<Fav>();
-        public List<Fav> FavList {
+        public FavListe favList;
+        public FavListe FavList {
             get => favList;
             set
             {
@@ -163,7 +163,7 @@ namespace MovieDB_Info_Library.ViewModel
             CallFav = new RelayCommand(e =>
                 {
                     ResultMovie = Call.APICall(SearchTitle);
-                    AddFav(ResultMovie.imdbID, ResultMovie.Title);
+                    FavList.AddFav(ResultMovie.imdbID, ResultMovie.Title);
                     
                 }
             );
@@ -181,28 +181,7 @@ namespace MovieDB_Info_Library.ViewModel
             });
         }
         //Call this functino to add Favourite to List
-        public void AddFav(string imDB, string Title)
-        {
-            Fav newFav = new Fav();
-            newFav.ImdbID = imDB;
-            newFav.Title = Title;
-            int i = 0;
-            for (i = 0; i <= favList.Count; i++)
-            {
-                if (i == favList.Count)
-                {
-                    favList.Add(newFav);
-                    RaisePropertyChanged();
-                    break;
-                }
-                if (favList[i].ImdbID == newFav.ImdbID)
-                {
-                    Console.WriteLine("Removed: " + favList[i]);
-                    favList.RemoveAt(i);
-                    break;
-                }
-            }
-        }
+        
 
 
         #region PropertyChanged
