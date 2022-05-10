@@ -143,7 +143,9 @@ namespace MovieDB_Info_Library.ViewModel
 
         public MovieViewModel()
         {
-            
+
+            var ctx = new FavContext();
+
             //Call API
             CallCommand = new RelayCommand(e =>
                 {
