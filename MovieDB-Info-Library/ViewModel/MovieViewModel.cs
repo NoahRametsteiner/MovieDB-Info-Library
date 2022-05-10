@@ -162,7 +162,7 @@ namespace MovieDB_Info_Library.ViewModel
             //Call Favourites
             CallFav = new RelayCommand(e =>
                 {
-                    if (FavList.favList == null)
+                    if (FavList == null)
                     {
                         FavList = new FavListe();
                     }
