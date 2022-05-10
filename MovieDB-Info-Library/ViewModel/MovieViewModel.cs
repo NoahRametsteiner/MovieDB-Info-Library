@@ -162,6 +162,10 @@ namespace MovieDB_Info_Library.ViewModel
             //Call Favourites
             CallFav = new RelayCommand(e =>
                 {
+                    if (FavList.favList == null)
+                    {
+                        FavList = new FavListe();
+                    }
                     ResultMovie = Call.APICall(SearchTitle);
                     FavList.AddFav(ResultMovie.imdbID, ResultMovie.Title);
                     
