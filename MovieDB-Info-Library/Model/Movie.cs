@@ -18,5 +18,6 @@ namespace MovieDB_Info_Library.Model
         public string Actors;
         public string Plot;
         public string Language;
+        public string Poster;
     }
 }

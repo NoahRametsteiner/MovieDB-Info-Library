@@ -15,26 +15,19 @@ using System.Windows.Shapes;
 namespace MovieDB_Info_Library.View
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für MovieDeatail.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MovieDeatail : Window
     {
-        public MainWindow()
+        public MovieDeatail()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FavList FavWindow = new FavList();
-            FavWindow.Show();
-            this.Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MovieDeatail DeatailWindow = new MovieDeatail();
-            DeatailWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
     }

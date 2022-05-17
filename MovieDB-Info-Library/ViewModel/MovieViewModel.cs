@@ -46,6 +46,7 @@ namespace MovieDB_Info_Library.ViewModel
         private string resultActors;
         private string resultPlot;
         private string resultLanguage;
+        private string resultPoster;
 
         public string ResultimdbID
         {
@@ -136,7 +137,15 @@ namespace MovieDB_Info_Library.ViewModel
                 RaisePropertyChanged(nameof(ResultLanguage));
             }
         }
-
+        public string ResultPoster
+        {
+            get => resultPoster;
+            set
+            {
+                resultPoster = value;
+                RaisePropertyChanged(nameof(ResultPoster));
+            }
+        }
 
         public Movie ResultMovie { get; set; }
         #endregion
@@ -160,6 +169,8 @@ namespace MovieDB_Info_Library.ViewModel
                     ResultActors = ResultMovie.Actors;
                     ResultPlot = ResultMovie.Plot;
                     ResultLanguage = ResultMovie.Language;
+                    ResultPoster = ResultMovie.Poster;
+
                 }
             );
             //Call Favourites
