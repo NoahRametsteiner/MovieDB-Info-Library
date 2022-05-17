@@ -139,13 +139,18 @@ namespace MovieDB_Info_Library.ViewModel
 
 
         public Movie ResultMovie { get; set; }
+
+       
         #endregion
+
+
 
         public MovieViewModel()
         {
 
             var ctx = new FavContext();
             FavList = FavListe.ConvertFromList(ctx.Favs.ToList());
+
 
             //Call API
             CallCommand = new RelayCommand(e =>

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:src="clr-namespace:MovieDB_Info_Library.ViewModel"
+        xmlns:uc="clr-namespace:MovieDB_Info_Library.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
@@ -38,80 +39,7 @@
             <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
 
-        <materialDesign:Card Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultTitle, UpdateSourceTrigger=PropertyChanged}"
-                ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultYear, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultRated, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultRuntime, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultGenre, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-
-        <materialDesign:Card Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultDirector, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultActors, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultPlot, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=ResultLanguage, UpdateSourceTrigger=PropertyChanged}"
-            ></TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Padding="14" Margin="16">
-            <TextBlock 
-                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{}"
-            ></TextBlock>
-        </materialDesign:Card>
-
-
-        <StackPanel Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="2">
-            <materialDesign:Card Padding="10" Margin="10,10,10,10">
-                <TextBox
-                    Text="{Binding Path=SearchTitle}"
-                    Foreground="#2F2F2F"
-                    materialDesign:HintAssist.Hint="Search DB"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                    VerticalAlignment="Center" />
-            </materialDesign:Card>
-        </StackPanel>
-
+        
         <Button Grid.Row="2" Grid.Column="0" 
             
             Foreground="#2F2F2F"
@@ -122,28 +50,6 @@
             IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="10,23,10,25" Click="Button_Click">
             <TextBlock Text="Fav-List" Margin="0,0,10,0"/>
         </Button>
-        <Button Grid.Row="2" Grid.Column="3" 
-            Command="{Binding Path =CallCommand}"
-            Foreground="#2F2F2F"
-            Background="#FFCB75"
-            Style="{StaticResource MaterialDesignRaisedButton}"
-            materialDesign:ButtonAssist.CornerRadius="10"
-            ToolTip="MaterialDesignRaisedButton with Round Corners"
-            IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="10,23,10,25">
-            <TextBlock Text="Search" Margin="0,0,10,0"/>
-        </Button>
-        <materialDesign:PackIcon Grid.Row="2" Grid.Column="3"  Kind="DatabaseSearch" Height="25" Width="25" Margin="115,29,0,0" />
-        <Button Grid.Row="2" Grid.Column="4" 
-                Command="{Binding Path =CallFav}"
-                Foreground="#2F2F2F"
-                Background="#FFCB75"
-                Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="10"
-                ToolTip="MaterialDesignRaisedButton with Round Corners"
-                IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="30,23,25,25">
-            <TextBlock Text="Fav" Margin="0,0,10,0"/>
-        </Button>
-        <materialDesign:PackIcon Grid.Row="2" Grid.Column="4"  Kind="FavoriteAdd" Height="25" Width="25" Margin="90,28,0,0" />
-
+        <uc:Search Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4"></uc:Search>
     </Grid>
 </Window>
