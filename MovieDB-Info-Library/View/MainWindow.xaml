@@ -18,14 +18,7 @@
     <Window.DataContext>
         <src:ParentViewModel/>
     </Window.DataContext>
-    <Window.Resources>
-        <ResourceDictionary>
-            <DataTemplate DataType="{x:Type src:MovieViewModel}">
-                <view:Search/>
-            </DataTemplate>
-            
-        </ResourceDictionary>
-    </Window.Resources>
+    
     <Grid x:Name="MovieDB">
         <Grid.Background>
             <ImageBrush ImageSource="../image/background.jpg" Opacity="0.9" Stretch="Fill" />
