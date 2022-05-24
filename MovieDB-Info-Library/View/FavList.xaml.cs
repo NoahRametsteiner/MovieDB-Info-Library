@@ -17,7 +17,7 @@ namespace MovieDB_Info_Library.View
     /// <summary>
     /// Interaktionslogik für FavList.xaml
     /// </summary>
-    public partial class FavList : Window
+    public partial class FavList : UserControl
     {
         public FavList()
         {
@@ -26,9 +26,8 @@ namespace MovieDB_Info_Library.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            
+            
         }
     }
 }

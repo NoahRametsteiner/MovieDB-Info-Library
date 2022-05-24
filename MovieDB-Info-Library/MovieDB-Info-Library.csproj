@@ -84,6 +84,7 @@
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\Fav.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
+    <Compile Include="ViewModel\ParentViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\FavList.xaml.cs">
       <DependentUpon>FavList.xaml</DependentUpon>
