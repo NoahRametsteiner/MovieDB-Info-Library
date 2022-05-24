@@ -9,8 +9,8 @@ using MovieDB_Info_Library.API;
 using MovieDB_Info_Library.Model;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Collections.ObjectModel;
+using MovieDB_Info_Library.View;
+
 
 namespace MovieDB_Info_Library.ViewModel
 {

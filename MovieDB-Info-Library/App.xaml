@@ -5,7 +5,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:viewModel="clr-namespace:MovieDB_Info_Library.ViewModel"
              xmlns:view="clr-namespace:MovieDB_Info_Library.View"
-             StartupUri="View/MainWindow.xaml">
+             StartupUri="View/LoginScreen.xaml">
     <Application.Resources> 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-         xmlns:src="clr-namespace:MovieDB_Info_Library.ViewModel"
+        xmlns:src="clr-namespace:MovieDB_Info_Library.ViewModel"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MovieDB_Info_Library.View"
         mc:Ignorable="d"
@@ -12,7 +12,7 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#F6F6F6"
         FontFamily="{DynamicResource MaterialDesignFont}">
     <UserControl.DataContext>
         <src:MovieViewModel/>
