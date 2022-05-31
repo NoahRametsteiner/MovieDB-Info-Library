@@ -22,7 +22,7 @@ namespace MovieDB_Info_Library.ViewModel
         public ICommand CallFav { get; set; }
         public ICommand MainPageCommand { get; set; }
         public ICommand FavPageCommand { get; set; }
-        public ICommand DetailCommand { get; set; }
+        public ICommand CallDetail { get; set; }
 
         public FavListe favList;
         public FavListe FavList {
@@ -190,9 +190,11 @@ namespace MovieDB_Info_Library.ViewModel
             {
 
             });
-            DetailCommand = new RelayCommand(e =>
+            CallDetail = new RelayCommand(e =>
             {
-                
+                ResultMovie = Call.APICall(SearchTitle);
+                AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre, 
+                ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);
             });
         }
         //Call this functino to add Favourite to List
@@ -219,6 +221,24 @@ namespace MovieDB_Info_Library.ViewModel
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void AddDetail(string title,int year,string rated,string runtime,string genre,string director,string actors,string plot,string language,string poster)
+        {
+            Detail newDetails = new Detail()
+            {
+                MovieTitle = title,
+                MovieYear = year,
+                MovieRated = rated,
+                MovieRuntime = runtime,
+                MovieGenre = genre,
+                MovieDirector = director,
+                MovieActors = actors,
+                MoviePlot = plot,
+                MovieLanguage = language,
+                MoviePoster = poster
+            };
+        }
+
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
