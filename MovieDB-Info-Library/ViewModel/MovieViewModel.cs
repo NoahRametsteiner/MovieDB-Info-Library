@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using MovieDB_Info_Library.View;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using System.Windows.Controls;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -48,7 +49,7 @@ namespace MovieDB_Info_Library.ViewModel
         private string resultActors;
         private string resultPlot;
         private string resultLanguage;
-        private string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
+        public static string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
 
         public string ResultimdbID
         {
@@ -212,49 +213,25 @@ namespace MovieDB_Info_Library.ViewModel
                     isalreadyindb = true;
                 }
             }
+
+            mailreader.Close();
+
             if (isalreadyindb = false)
             {
-                cmd.CommandText = $"INSERT INTO movies(mid, moviename) VALUES(\"{imdbID}\",\"{title}\")";
+                cmd.CommandText = $"INSERT INTO movies(mid, moviename) VALUES('{imdbID}','{title}')";
                 cmd.ExecuteNonQuery();
             }
 
-            cmd.CommandText = $"INSERT INTO favlist(id, mid) VALUES(1,\"{imdbID}\")";
+            cmd.CommandText = $"INSERT INTO favlist(id, mid) VALUES({ParentViewModel.CurrentUserID},'{imdbID}')";
+            
             cmd.ExecuteNonQuery();
             Connection.Close();
-
-            /*
-        Fav newFav = new Fav()
-            {
-                ImdbID = imdbID,
-                Title = title
-            };
-            try
-            {
-                using (var ctx = new FavContext())
-                {
-                    ctx.Favs.Add(newFav);
-                    ctx.SaveChanges();
-
-                    FavList = FavListe.ConvertFromList(ctx.Favs.ToList());
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }*/
         }
 
         public void Favl()
         {
 
-            var Connection = new SqlConnection(DBLogin);
-            Connection.Open();
-            SqlDataAdapter adapvare = new SqlDataAdapter($"select movies.mid,moviename from movies join user join favlist where movies.mid=favlist.mid and id={ParentViewModel.CurrentUserID};", Connection);
-            System.Data.DataSet dsFald = new System.Data.DataSet();
-            adapvare.Fill(dsFald, "ListView1");
-            //osmanGrid.DataContext = dsFald.Tables["ListView1"].DefaultView;
-
-            Connection.Close();
+            
         }
 
         #region PropertyChanged

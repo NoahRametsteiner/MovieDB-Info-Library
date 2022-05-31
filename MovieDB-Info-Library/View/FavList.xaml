@@ -32,7 +32,7 @@
         </Grid.ColumnDefinitions>
         
         
-        <ListView Name="ListView1" ItemsSource="{Binding}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+        <ListView Name="ListView1" ItemsSource="{}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
