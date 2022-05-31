@@ -39,7 +39,7 @@ namespace MovieDB_Info_Library.ViewModel
             }
         }
 
-        public int CurrentUserID { get; set; }
+        public static int CurrentUserID { get; set; }
 
         public ParentViewModel()
         {
