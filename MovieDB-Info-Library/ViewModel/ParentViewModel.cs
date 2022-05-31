@@ -39,10 +39,12 @@ namespace MovieDB_Info_Library.ViewModel
             }
         }
 
+        public int CurrentUserID { get; set; }
+
         public ParentViewModel()
         {
             CurrentPage = new MovieViewModel();
-
+            CurrentUserID = LoginViewModel.UID;
 
             Logout = new RelayCommand(e =>
             {

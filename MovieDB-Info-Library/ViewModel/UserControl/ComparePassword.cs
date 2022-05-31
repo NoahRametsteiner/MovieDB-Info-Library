@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
+using MovieDB_Info_Library.ViewModel;
 
 namespace MovieDB_Info_Library.ViewModel
 {
     class ComparePassword
     {
-        public static bool PasswordCompare(string DBLogin, string Email, string EnterdPassword)
+        public static int PasswordCompare(string DBLogin, string Email, string EnterdPassword)
         {
 
             var Connection1 = new MySqlConnection(DBLogin);
@@ -28,11 +29,16 @@ namespace MovieDB_Info_Library.ViewModel
 
                 if (String.Equals(HashedEnterdPassword, (string)reader["password"]))
                 {
-                    return true;
+                    sqlstatment = $"select uid from user where email=\"{Email}\"";
+                    var getUID = new MySqlCommand(sqlstatment, Connection1);
+                    reader.Close();
+                    reader = getUID.ExecuteReader();
+                    reader.Read();
+                    return (int)reader["uid"];
                 }
             }
             MessageBox.Show("Wrong password or email!", "error");
-            return false;
+            return 0;
         }
     }
 }
