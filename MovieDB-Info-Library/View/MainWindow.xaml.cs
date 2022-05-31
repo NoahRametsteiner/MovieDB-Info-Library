@@ -34,10 +34,10 @@ namespace MovieDB_Info_Library.View
                 FavList FavWindow = new FavList();
                 ContentControl1.Content = FavWindow;
             }
-            if(sender == SearchButton)
+            if (sender == SearchButton)
             {
-                Search u1 = new Search();
-                ContentControl1.Content = u1;
+                Search Search = new Search();
+                ContentControl1.Content = Search;
 
             }
         }
