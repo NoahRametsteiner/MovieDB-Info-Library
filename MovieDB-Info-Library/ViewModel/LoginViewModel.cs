@@ -25,7 +25,7 @@ namespace MovieDB_Info_Library.ViewModel
         public ICommand Register { get; set; }
 
 
-        private string DBLogin = @"server=localhost;userid=root;password=htl;database=passworddb";
+        private string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
         public string Email { get; set; }
         public string Pw { get; set; }
 

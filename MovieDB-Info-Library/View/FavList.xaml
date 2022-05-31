@@ -32,18 +32,15 @@
         </Grid.ColumnDefinitions>
         
         
-        <ListView Name="ListView1"
-  ItemsSource="{Binding FavList.FavList, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+        <ListView Name="ListView1" ItemsSource="{Binding}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
-        DisplayMemberBinding="{Binding ImdbID}"
-        Header="ImDb" />
+                        DisplayMemberBinding="{Binding ImdbID}"
+                        Header="ImDb" />
                     <GridViewColumn
-        DisplayMemberBinding="{Binding Title}"
-        Header="Name" />
-                    
-                    
+                        DisplayMemberBinding="{Binding Title}"
+                        Header="Name" />
                 </GridView>
             </ListView.View>
         </ListView>

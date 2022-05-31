@@ -10,7 +10,8 @@ using MovieDB_Info_Library.Model;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using MovieDB_Info_Library.View;
-
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -19,11 +20,11 @@ namespace MovieDB_Info_Library.ViewModel
         #region Declarations
 
         public ICommand CallCommand { get; set; }
-        public ICommand CallFav { get; set; }
         public ICommand MainPageCommand { get; set; }
         public ICommand FavPageCommand { get; set; }
         public ICommand DetailCommand { get; set; }
-
+        public ICommand Fav { get; set; }
+        
         public FavListe favList;
         public FavListe FavList {
             get => favList;
@@ -46,6 +47,7 @@ namespace MovieDB_Info_Library.ViewModel
         private string resultActors;
         private string resultPlot;
         private string resultLanguage;
+        private string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
 
         public string ResultimdbID
         {
@@ -151,7 +153,6 @@ namespace MovieDB_Info_Library.ViewModel
             var ctx = new FavContext();
             FavList = FavListe.ConvertFromList(ctx.Favs.ToList());
 
-
             //Call API
             CallCommand = new RelayCommand(e =>
                 {
@@ -167,22 +168,13 @@ namespace MovieDB_Info_Library.ViewModel
                     ResultLanguage = ResultMovie.Language;
                 }
             );
-            //Call Favourites
-            CallFav = new RelayCommand(e =>
-                {
-                    
-                    ResultMovie = Call.APICall(SearchTitle);
-                    AddFav(ResultMovie.imdbID, ResultMovie.Title);
-                    
-                }
-            );
             MainPageCommand = new RelayCommand(e =>
             {
 
             });
-            FavPageCommand = new RelayCommand(e =>
+            Fav = new RelayCommand(e =>
             {
-
+                Favl();
             });
             DetailCommand = new RelayCommand(e =>
             {
@@ -193,7 +185,19 @@ namespace MovieDB_Info_Library.ViewModel
         
         public void AddFav(string imdbID, string title)
         {
-            Fav newFav = new Fav()
+
+            var Connection = new MySqlConnection(DBLogin);
+            Connection.Open();
+            var cmd = new MySqlCommand();
+            cmd.Connection = Connection;
+            cmd.CommandText = $"INSERT INTO movies(mid, moviename) VALUES(\"{imdbID}\",\"{title}\")";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = $"INSERT INTO favlist(id, mid) VALUES(1,\"{imdbID}\")";
+            cmd.ExecuteNonQuery();
+            Connection.Close();
+
+            /*
+        Fav newFav = new Fav()
             {
                 ImdbID = imdbID,
                 Title = title
@@ -211,7 +215,21 @@ namespace MovieDB_Info_Library.ViewModel
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
+            }*/
+        }
+
+        public void Favl()
+        {
+            int id = 1;
+
+            var Connection = new SqlConnection(DBLogin);
+            Connection.Open();
+            SqlDataAdapter adapvare = new SqlDataAdapter($"select movies.mid,moviename from movies join user join favlist where movies.mid=favlist.mid and id={id};", Connection);
+            System.Data.DataSet dsFald = new System.Data.DataSet();
+            adapvare.Fill(dsFald, "ListView1");
+            //osmanGrid.DataContext = dsFald.Tables["ListView1"].DefaultView;
+
+            Connection.Close();
         }
 
         #region PropertyChanged
