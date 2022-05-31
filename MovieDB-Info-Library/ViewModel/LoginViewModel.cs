@@ -24,6 +24,7 @@ namespace MovieDB_Info_Library.ViewModel
         public ICommand Login { get; set; }
         public ICommand Register { get; set; }
 
+        public static int UID { get; set; }
 
         private string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
         public string Email { get; set; }
@@ -33,13 +34,15 @@ namespace MovieDB_Info_Library.ViewModel
         {
             Login = new RelayCommand(e =>
             {
-                bool i = false;
+                int i = 0;
                 i = ComparePassword.PasswordCompare(DBLogin, Email, Pw);
-                if (i == true)
+                if (i != 0)
                 {
+                    UID = i;
                     MainWindow main = new MainWindow();
                     Application.Current.Windows[0].Close();
                     main.ShowDialog();
+                   
                 }
             });
 
@@ -54,5 +57,6 @@ namespace MovieDB_Info_Library.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
     }
 }

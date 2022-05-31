@@ -32,7 +32,6 @@ C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\De
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\Search.g.cs
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\Search.baml
-C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\MovieDB-Info-Library.exe.config
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\MovieDB-Info-Library.exe
 C:\Users\Notsch\Desktop\ALL\ITP2\4\Kah\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\MovieDB-Info-Library.pdb
@@ -117,3 +116,4 @@ C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\De
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\LoginScreen.g.cs
 C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\View\LoginScreen.baml
+C:\Users\tosch\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
