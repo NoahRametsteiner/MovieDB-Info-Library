@@ -35,9 +35,8 @@ namespace MovieDB_Info_Library.View
         {
 
 
-            MovieDeatail DeatailWindow = new MovieDeatail();
-            DeatailWindow.Show();
-            this.Close();
+
+    
         }
     }
 }

@@ -36,18 +36,60 @@
             <Image Name="ImageViewer" Source="{Binding Path=MovieBanner, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
+        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
             <TextBlock 
                 Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=MovieTitle, UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=newDetail.MovieTitle, UpdateSourceTrigger=PropertyChanged}"
+            ></TextBlock>
+        </materialDesign:Card>
+        <!--<materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+            <TextBlock 
+                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                Text="{Binding Path=newDetail.MovieYear, UpdateSourceTrigger=PropertyChanged}"
             ></TextBlock>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
             <TextBlock 
                 Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
-                Text="{Binding Path=MovieTitle, UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=MovieRated, UpdateSourceTrigger=PropertyChanged}"
             ></TextBlock>
         </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
+            <TextBlock 
+                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                Text="{Binding Path=MovieRuntime, UpdateSourceTrigger=PropertyChanged}"
+            ></TextBlock>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
+            <TextBlock 
+                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                Text="{Binding Path=MovieGenre, UpdateSourceTrigger=PropertyChanged}"
+            ></TextBlock>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
+            <TextBlock 
+                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                Text="{Binding Path=MovieDirector, UpdateSourceTrigger=PropertyChanged}"
+            ></TextBlock>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
+            <TextBlock 
+                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                Text="{Binding Path=MovieActors, UpdateSourceTrigger=PropertyChanged}"
+            ></TextBlock>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
+            <TextBlock 
+                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                Text="{Binding Path=MoviePlot, UpdateSourceTrigger=PropertyChanged}"
+            ></TextBlock>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Padding="14" Margin="16">
+            <TextBlock 
+                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                Text="{Binding Path=MovieLanguage, UpdateSourceTrigger=PropertyChanged}"
+            ></TextBlock>
+        </materialDesign:Card>-->
 
         <Button Grid.Row="0" Grid.Column="1" 
             Command="{Binding Path =MainPageCommand}"

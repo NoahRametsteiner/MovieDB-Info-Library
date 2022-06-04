@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Collections.ObjectModel;
+using MovieDB_Info_Library.View;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -146,6 +147,16 @@ namespace MovieDB_Info_Library.ViewModel
                 RaisePropertyChanged(nameof(ResultPoster));
             }
         }
+        private Detail NewDetail;
+        public Detail newDetail
+        {
+            get => NewDetail;
+            set
+            {
+                NewDetail = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public Movie ResultMovie { get; set; }
         #endregion
@@ -195,6 +206,9 @@ namespace MovieDB_Info_Library.ViewModel
                 ResultMovie = Call.APICall(SearchTitle);
                 AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre, 
                 ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);
+
+                MovieDeatail DeatailWindow = new MovieDeatail();
+                DeatailWindow.Show();
             });
         }
         //Call this functino to add Favourite to List
@@ -224,7 +238,7 @@ namespace MovieDB_Info_Library.ViewModel
 
         public void AddDetail(string title,int year,string rated,string runtime,string genre,string director,string actors,string plot,string language,string poster)
         {
-            Detail newDetails = new Detail()
+            newDetail = new Detail()
             {
                 MovieTitle = title,
                 MovieYear = year,
@@ -237,6 +251,7 @@ namespace MovieDB_Info_Library.ViewModel
                 MovieLanguage = language,
                 MoviePoster = poster
             };
+
         }
 
 

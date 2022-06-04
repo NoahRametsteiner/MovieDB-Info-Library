@@ -15,6 +15,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Windows.Controls;
 using System.IO;
 using System.Net;
+using System.Windows.Media.Imaging;
 
 namespace MovieDB_Info_Library.Model
 {
@@ -32,16 +33,7 @@ namespace MovieDB_Info_Library.Model
         public string MovieLanguage { get; set; }
         public string MoviePoster { get; set; }
 
-        public byte[] MovieBanner { get; set; }
+        public Image MovieBanner { get; set; }
 
-        public void ImagefromUrl()
-        {
-            using (var webClient = new WebClient())
-            {
-                byte[] imageBytes = webClient.DownloadData(MoviePoster);
-                MovieBanner = imageBytes;
-            }
-            
-        }
     }
 }
