@@ -3,13 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MovieDB_Info_Library"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="View/MainWindow.xaml">
+             xmlns:viewModel="clr-namespace:MovieDB_Info_Library.ViewModel"
+             xmlns:view="clr-namespace:MovieDB_Info_Library.View"
+             StartupUri="View/LoginScreen.xaml">
     <Application.Resources> 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

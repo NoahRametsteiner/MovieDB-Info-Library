@@ -22,13 +22,24 @@ namespace MovieDB_Info_Library.View
         public MainWindow()
         {
             InitializeComponent();
+            Search u1 = new Search();
+            ContentControl1.Content = u1;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FavList FavWindow = new FavList();
-            FavWindow.Show();
-            this.Close();
+            if (sender == FavButton)
+            {
+                FavList FavWindow = new FavList();
+                ContentControl1.Content = FavWindow;
+            }
+            if (sender == SearchButton)
+            {
+                Search Search = new Search();
+                ContentControl1.Content = Search;
+
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
