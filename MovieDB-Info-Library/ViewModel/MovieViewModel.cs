@@ -147,19 +147,21 @@ namespace MovieDB_Info_Library.ViewModel
                 RaisePropertyChanged(nameof(ResultPoster));
             }
         }
-        private Detail NewDetail;
-        public Detail newDetail
+        private static Detail NewDetail;
+        public static Detail newDetail
         {
             get => NewDetail;
             set
             {
                 NewDetail = value;
-                RaisePropertyChanged();
+              
             }
         }
 
         public Movie ResultMovie { get; set; }
+        public static string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
         #endregion
+
 
         public MovieViewModel()
         {
@@ -204,6 +206,17 @@ namespace MovieDB_Info_Library.ViewModel
             CallDetail = new RelayCommand(e =>
             {
                 ResultMovie = Call.APICall(SearchTitle);
+                ResultTitle = ResultMovie.Title;
+                ResultYear = ResultMovie.Year;
+                resultRated = ResultMovie.Rated;
+                ResultRuntime = ResultMovie.Runtime;
+                ResultGenre = ResultMovie.Genre;
+                ResultDirector = ResultMovie.Director;
+                ResultActors = ResultMovie.Actors;
+                ResultPlot = ResultMovie.Plot;
+                ResultLanguage = ResultMovie.Language;
+                ResultPoster = ResultMovie.Poster;
+
                 AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre, 
                 ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);
 
@@ -248,7 +261,6 @@ namespace MovieDB_Info_Library.ViewModel
                 MovieDirector = director,
                 MovieActors = actors,
                 MoviePlot = plot,
-                MovieLanguage = language,
                 MoviePoster = poster
             };
 

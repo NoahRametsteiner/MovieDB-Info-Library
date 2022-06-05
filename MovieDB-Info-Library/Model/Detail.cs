@@ -30,10 +30,10 @@ namespace MovieDB_Info_Library.Model
         public string MovieDirector { get; set; }
         public string MovieActors { get; set; }
         public string MoviePlot { get; set; }
-        public string MovieLanguage { get; set; }
         public string MoviePoster { get; set; }
 
         public Image MovieBanner { get; set; }
+
 
     }
 }
