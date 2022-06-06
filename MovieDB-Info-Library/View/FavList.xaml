@@ -32,7 +32,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-            <DataGrid Name="ListView1" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}">
+            <DataGrid Name="ListView1" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}" IsReadOnly="True">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="ImdbID" Binding="{Binding ImdbID}" />
