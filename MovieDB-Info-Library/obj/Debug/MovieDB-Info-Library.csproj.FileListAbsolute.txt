@@ -183,3 +183,5 @@ C:\Users\Notsch\Desktop\A-L-L\Repo\MovieDB-Info-Library\MovieDB-Info-Library\obj
 C:\Users\Notsch\Desktop\A-L-L\Repo\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.CopyComplete
 C:\Users\Notsch\Desktop\A-L-L\Repo\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.exe
 C:\Users\Notsch\Desktop\A-L-L\Repo\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.pdb
+C:\Users\Clemens\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\obj\Debug\MovieDB-Info-Library.csproj.AssemblyReference.cache
+C:\Users\Clemens\Documents\GitHub\MovieDB-Info-Library\MovieDB-Info-Library\bin\Debug\System.Drawing.VisualStudio.15.0.dll

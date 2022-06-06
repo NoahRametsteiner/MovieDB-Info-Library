@@ -2,38 +2,49 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace MovieDB_Info_Library.ViewModel
 {
-    class DetailViewModel : INotifyPropertyChanged
+    class DetailViewModel : INotifyPropertyChanged 
     {
-        private Detail NewDetail;
-        public Detail newDetail
+        private Detail newDetail;
+        public Detail NewDetail
         {
-            get => NewDetail;
+            get => newDetail;
             set
             {
-                NewDetail = value;
-                RaisePropertyChanged(nameof(newDetail));
+                newDetail = value;
+                RaisePropertyChanged(nameof(NewDetail));
             }
         }
 
         public DetailViewModel(){
 
-            newDetail = MovieViewModel.newDetail;
+            NewDetail = new Detail();
+            NewDetail = MovieViewModel.newDetail;
 
             using (WebClient client = new WebClient())
             {
-                try
-                {
-                    client.DownloadFileAsync(new Uri(newDetail.MoviePoster), @"..\image\banner.jpg");
-                }
-                catch { }
+                NewDetail.MovieBanner = client.DownloadData(NewDetail.MoviePoster);
+            }
+
+            using (var stream = new MemoryStream(NewDetail.MovieBanner))
+            {
+                var bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.StreamSource = stream;
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
+                bitmap.Freeze();
+                newDetail.movieBild = bitmap;
             }
 
 
@@ -42,8 +53,8 @@ namespace MovieDB_Info_Library.ViewModel
 
 
 
-        #region PropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+    #region PropertyChanged
+    public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
