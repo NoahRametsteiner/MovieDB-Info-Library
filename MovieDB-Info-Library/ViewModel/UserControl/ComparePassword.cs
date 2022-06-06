@@ -12,12 +12,12 @@ namespace MovieDB_Info_Library.ViewModel
 {
     class ComparePassword
     {
-        public static int PasswordCompare(string DBLogin, string Email, string EnterdPassword)
+        public static int PasswordCompare(string DBLogin, string Username, string EnterdPassword)
         {
 
             var Connection1 = new MySqlConnection(DBLogin);
             Connection1.Open();
-            var sqlstatment = $"select * from user where email=\"{Email}\"";
+            var sqlstatment = $"select * from user where username=\"{Username}\"";
             var getemail = new MySqlCommand(sqlstatment, Connection1);
             MySqlDataReader reader = getemail.ExecuteReader();
 
@@ -29,7 +29,7 @@ namespace MovieDB_Info_Library.ViewModel
 
                 if (String.Equals(HashedEnterdPassword, (string)reader["password"]))
                 {
-                    sqlstatment = $"select uid from user where email=\"{Email}\"";
+                    sqlstatment = $"select uid from user where username=\"{Username}\"";
                     var getUID = new MySqlCommand(sqlstatment, Connection1);
                     reader.Close();
                     reader = getUID.ExecuteReader();

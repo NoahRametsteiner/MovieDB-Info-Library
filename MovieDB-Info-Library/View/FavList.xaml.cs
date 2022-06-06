@@ -1,18 +1,9 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MovieDB_Info_Library.ViewModel;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MovieDB_Info_Library.ViewModel;
 
 namespace MovieDB_Info_Library.View
 {
@@ -24,35 +15,32 @@ namespace MovieDB_Info_Library.View
 
         public FavList()
         {
-            //ListView1.Items.Clear();
+            InitializeComponent();
+            ListView1.Items.Clear();
+
+            List<User> users = new List<User>();
 
             var Connection = new MySqlConnection(MovieViewModel.DBLogin);
             Connection.Open();
-            var sqlstatment = $"select movies.mid,moviename from movies join user join favlist where movies.mid=favlist.mid and id={ParentViewModel.CurrentUserID} group by movies.mid";
+            var sqlstatment = $"select movies.mid,moviename from movies join user join favlist where movies.mid=favlist.mid and id={LoginViewModel.UID} group by movies.mid";
             var getemail = new MySqlCommand(sqlstatment, Connection);
             MySqlDataReader reader = getemail.ExecuteReader();
-
-            if (reader.Read())
+            int i = 0;
+            while (reader.Read())
             {
-                string[] row = { (string)reader["mid"], (string)reader["moviename"] };
-
-                string[] arr = new string[3];
-                ListViewItem itm;
-
-                arr[0] = "product_1";
-                arr[1] = "100";
-
-
-                //Fix this futur me, i dont know why this does not work
-                itm = new ListViewItem();
-                ListView1.Items.Add(itm);
-
+                users.Add(new User() { Id = i, ImdbID = (string)reader["mid"], Title = (string)reader["moviename"] });
+                i++;
             }
-            ListView1.Items.Add("List item text");
-
             Connection.Close();
+            ListView1.ItemsSource = users;
+        }
 
-            InitializeComponent();
+        public class User
+        {
+            public int Id { get; set; }
+
+            public string Title { get; set; }
+            public string ImdbID { get; set; }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

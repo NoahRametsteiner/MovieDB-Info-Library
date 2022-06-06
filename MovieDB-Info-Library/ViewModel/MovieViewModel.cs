@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Collections.ObjectModel;
 using MovieDB_Info_Library.View;
+using MySql.Data.MySqlClient;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -225,28 +226,52 @@ namespace MovieDB_Info_Library.ViewModel
             });
         }
         //Call this functino to add Favourite to List
-        
-        public void AddFav(string imdbID, string title)
+
+        public bool AddFav(string imdbID, string title)
         {
-            Fav newFav = new Fav()
+
+            if (title=="" | title == null)
             {
-                ImdbID = imdbID,
-                Title = title
-            };
+                return false;
+            }
+
+            string sqlstatment = "";
+            var Connection = new MySqlConnection(DBLogin);
+            Connection.Open();
+            var cmd = new MySqlCommand();
+            cmd.Connection = Connection;
+
+
+            //Gets all movies and if its not in the database add it
             try
             {
-                using (var ctx = new FavContext())
-                {
-                    ctx.Favs.Add(newFav);
-                    ctx.SaveChanges();
-
-                    FavList = FavListe.ConvertFromList(ctx.Favs.ToList());
-                }
+                cmd.CommandText = $"INSERT INTO movies(mid, moviename) VALUES(\"{imdbID}\",\"{title}\")";
+                cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex.Message);
+
             }
+
+            //Add movie do favlist and check if movie is already fav by user.
+            try
+            {
+                cmd.CommandText = $"INSERT INTO favlist(id, mid) VALUES(\"{LoginViewModel.UID}\",\"{imdbID}\")";
+                cmd.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Movie already in your favorite list", "Error");
+            }
+
+
+            /*
+            Connection.CommandText = $"INSERT INTO user(uid, email,password,  salt) VALUES()";
+            Connection.ExecuteNonQuery();
+            */
+            Connection.Close();
+            return true;
         }
 
         public void AddDetail(string title,int year,string rated,string runtime,string genre,string director,string actors,string plot,string language,string poster)

@@ -29,7 +29,11 @@ namespace MovieDB_Info_Library.ViewModel
 
             using (WebClient client = new WebClient())
             {
-                client.DownloadFileAsync(new Uri(newDetail.MoviePoster), @"..\image\banner.jpg");
+                try
+                {
+                    client.DownloadFileAsync(new Uri(newDetail.MoviePoster), @"..\image\banner.jpg");
+                }
+                catch { }
             }
 
 

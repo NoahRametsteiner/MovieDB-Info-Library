@@ -11,7 +11,7 @@ namespace MovieDB_Info_Library.ViewModel
 {
     internal class AddUser
     {
-        public static bool CreateUser(string login, string email, string password)
+        public static bool CreateUser(string login, string Username, string password)
         {
             //Var
             int UID = 0;
@@ -26,13 +26,15 @@ namespace MovieDB_Info_Library.ViewModel
             MySqlDataReader mailreader = getmail.ExecuteReader();
             while (mailreader.Read())
             {
-                if (String.Equals(mailreader["email"], email))
+                if (String.Equals(mailreader["username"], Username))
                 {
-                    MessageBox.Show("Mail is already in use!", "error");
+                    MessageBox.Show("Username is already in use!", "error");
+                    Connection.Close();
                     return false;
                 }
             }
-            Connection.Close();
+            mailreader.Close();
+
 
             //Password To SHA256 Generator
             string hPassword = HashPassword.ComputeHash(password, salt);
@@ -40,24 +42,20 @@ namespace MovieDB_Info_Library.ViewModel
             //https://www.codegrepper.com/code-examples/csharp/select+mysql+c%23
             //https://zetcode.com/csharp/mysql/
             //Login to DB And Get New UID
-            var Connection1 = new MySqlConnection(login);
-            Connection1.Open();
             sqlstatment = "select * from user";
-            var getuid = new MySqlCommand(sqlstatment, Connection1);
+            var getuid = new MySqlCommand(sqlstatment, Connection);
             MySqlDataReader reader = getuid.ExecuteReader();
             while (reader.Read()) { UID = (int)reader["uid"]; }
             UID++;
-            Connection1.Close();
+            reader.Close();
 
             //Login To DB And Add New User
-            var Connection2 = new MySqlConnection(login);
-            Connection2.Open();
             var cmd = new MySqlCommand();
-            cmd.Connection = Connection2;
+            cmd.Connection = Connection;
 
-            cmd.CommandText = $"INSERT INTO user(uid, email,password,  salt) VALUES({UID},\"{email}\",\"{hPassword}\",\"{salt}\")";
+            cmd.CommandText = $"INSERT INTO user(uid, username,password,  salt) VALUES({UID},\"{Username}\",\"{hPassword}\",\"{salt}\")";
             cmd.ExecuteNonQuery();
-            Connection2.Close();
+            Connection.Close();
             MessageBox.Show("User was added!", "Suc");
             return true;
         }

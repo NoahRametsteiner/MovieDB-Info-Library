@@ -26,7 +26,7 @@ namespace MovieDB_Info_Library.ViewModel
 
         public static int UID { get; set; }
 
-        private string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
+        private string DBLogin = MovieViewModel.DBLogin;
         public string Email { get; set; }
         public string Pw { get; set; }
 
