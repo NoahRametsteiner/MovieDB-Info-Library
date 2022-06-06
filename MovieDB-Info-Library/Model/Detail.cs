@@ -23,7 +23,7 @@ namespace MovieDB_Info_Library.Model
     {
         [Key]
         public string MovieTitle { get; set; }
-        public int MovieYear { get; set; }
+        public string MovieYear { get; set; }
         public string MovieRated { get; set; }
         public string MovieRuntime { get; set; }
         public string MovieGenre { get; set; }

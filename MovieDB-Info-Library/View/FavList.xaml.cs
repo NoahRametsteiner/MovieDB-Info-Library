@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using MovieDB_Info_Library.API;
+using MovieDB_Info_Library.Model;
 
 namespace MovieDB_Info_Library.View
 {
@@ -12,13 +14,15 @@ namespace MovieDB_Info_Library.View
     /// </summary>
     public partial class FavList : UserControl
     {
+        private Movies selectedItem;
+
 
         public FavList()
         {
             InitializeComponent();
             ListView1.Items.Clear();
 
-            List<User> users = new List<User>();
+            List<Movies> users = new List<Movies>();
 
             var Connection = new MySqlConnection(MovieViewModel.DBLogin);
             Connection.Open();
@@ -28,14 +32,14 @@ namespace MovieDB_Info_Library.View
             int i = 0;
             while (reader.Read())
             {
-                users.Add(new User() { Id = i, ImdbID = (string)reader["mid"], Title = (string)reader["moviename"] });
+                users.Add(new Movies() { Id = i, ImdbID = (string)reader["mid"], Title = (string)reader["moviename"] });
                 i++;
             }
             Connection.Close();
             ListView1.ItemsSource = users;
         }
 
-        public class User
+        public class Movies
         {
             public int Id { get; set; }
 
@@ -43,15 +47,13 @@ namespace MovieDB_Info_Library.View
             public string ImdbID { get; set; }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-            
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            Movies movie = (Movies)ListView1.SelectedItem;
+            if (movie != null)
+            {
+                MovieViewModel.selectedMovie = movie.Title;
+            }
         }
     }
 }

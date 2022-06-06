@@ -21,10 +21,11 @@ namespace MovieDB_Info_Library.ViewModel
         #region Declarations
 
         public ICommand CallCommand { get; set; }
-        public ICommand CallFav { get; set; }
+
         public ICommand MainPageCommand { get; set; }
         public ICommand FavPageCommand { get; set; }
         public ICommand CallDetail { get; set; }
+        public ICommand CallFavDetail { get; set; }
 
         public FavListe favList;
         public FavListe FavList {
@@ -36,11 +37,11 @@ namespace MovieDB_Info_Library.ViewModel
             }
         }
         public Boolean flag;
-        public string SearchTitle { get; set; }
+        public static string SearchTitle { get; set; }
         Movie Result { get; set; }
         private string resultimdbID;
         private string resultTitle;
-        private int resultYear;
+        private string resultYear;
         private string resultRated;
         private string resultRuntime;
         private string resultGenre;
@@ -49,6 +50,9 @@ namespace MovieDB_Info_Library.ViewModel
         private string resultPlot;
         private string resultLanguage;
         private string resultPoster;
+
+        public static string selectedMovie { get; set; }
+
 
         public string ResultimdbID
         {
@@ -67,7 +71,7 @@ namespace MovieDB_Info_Library.ViewModel
                 RaisePropertyChanged(nameof(ResultTitle));
             }
         }
-        public int ResultYear
+        public string ResultYear
         {
             get => resultYear;
             set
@@ -159,7 +163,7 @@ namespace MovieDB_Info_Library.ViewModel
             }
         }
 
-        public Movie ResultMovie { get; set; }
+        public static Movie ResultMovie { get; set; }
         public static string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
         #endregion
 
@@ -187,15 +191,7 @@ namespace MovieDB_Info_Library.ViewModel
 
                 }
             );
-            //Call Favourites
-            CallFav = new RelayCommand(e =>
-                {
-                    
-                    ResultMovie = Call.APICall(SearchTitle);
-                    AddFav(ResultMovie.imdbID, ResultMovie.Title);
-                    
-                }
-            );
+
             MainPageCommand = new RelayCommand(e =>
             {
 
@@ -206,75 +202,56 @@ namespace MovieDB_Info_Library.ViewModel
             });
             CallDetail = new RelayCommand(e =>
             {
-                ResultMovie = Call.APICall(SearchTitle);
-                ResultTitle = ResultMovie.Title;
-                ResultYear = ResultMovie.Year;
-                resultRated = ResultMovie.Rated;
-                ResultRuntime = ResultMovie.Runtime;
-                ResultGenre = ResultMovie.Genre;
-                ResultDirector = ResultMovie.Director;
-                ResultActors = ResultMovie.Actors;
-                ResultPlot = ResultMovie.Plot;
-                ResultLanguage = ResultMovie.Language;
-                ResultPoster = ResultMovie.Poster;
+                if(SearchTitle != null)
+                {
+                    ResultMovie = Call.APICall(SearchTitle);
+                    ResultTitle = ResultMovie.Title;
+                    ResultYear = ResultMovie.Year;
+                    resultRated = ResultMovie.Rated;
+                    ResultRuntime = ResultMovie.Runtime;
+                    ResultGenre = ResultMovie.Genre;
+                    ResultDirector = ResultMovie.Director;
+                    ResultActors = ResultMovie.Actors;
+                    ResultPlot = ResultMovie.Plot;
+                    ResultLanguage = ResultMovie.Language;
+                    ResultPoster = ResultMovie.Poster;
 
-                AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre, 
-                ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);
-
+                    AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre,
+                    ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);
+                }
                 MovieDeatail DeatailWindow = new MovieDeatail();
                 DeatailWindow.Show();
             });
+
+            CallFavDetail = new RelayCommand(e =>
+            {
+                if (selectedMovie !=null)
+                {
+                    ResultMovie = Call.APICall(selectedMovie);
+                    ResultTitle = ResultMovie.Title;
+                    ResultYear = ResultMovie.Year;
+                    resultRated = ResultMovie.Rated;
+                    ResultRuntime = ResultMovie.Runtime;
+                    ResultGenre = ResultMovie.Genre;
+                    ResultDirector = ResultMovie.Director;
+                    ResultActors = ResultMovie.Actors;
+                    ResultPlot = ResultMovie.Plot;
+                    ResultLanguage = ResultMovie.Language;
+                    ResultPoster = ResultMovie.Poster;
+
+                    AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre,
+                    ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);
+                }
+                MovieDeatail DeatailWindow = new MovieDeatail();
+                DeatailWindow.Show();
+            });
+
         }
         //Call this functino to add Favourite to List
 
-        public bool AddFav(string imdbID, string title)
-        {
+        
 
-            if (title=="" | title == null)
-            {
-                return false;
-            }
-
-            string sqlstatment = "";
-            var Connection = new MySqlConnection(DBLogin);
-            Connection.Open();
-            var cmd = new MySqlCommand();
-            cmd.Connection = Connection;
-
-
-            //Gets all movies and if its not in the database add it
-            try
-            {
-                cmd.CommandText = $"INSERT INTO movies(mid, moviename) VALUES(\"{imdbID}\",\"{title}\")";
-                cmd.ExecuteNonQuery();
-            }
-            catch
-            {
-
-            }
-
-            //Add movie do favlist and check if movie is already fav by user.
-            try
-            {
-                cmd.CommandText = $"INSERT INTO favlist(id, mid) VALUES(\"{LoginViewModel.UID}\",\"{imdbID}\")";
-                cmd.ExecuteNonQuery();
-
-            }
-            catch
-            {
-                MessageBox.Show("Movie already in your favorite list", "Error");
-            }
-
-
-            /*
-            Connection.CommandText = $"INSERT INTO user(uid, email,password,  salt) VALUES()";
-            Connection.ExecuteNonQuery();
-            */
-            Connection.Close();
-            return true;
-        }
-
-        public void AddDetail(string title,int year,string rated,string runtime,string genre,string director,string actors,string plot,string language,string poster)
+        public static void AddDetail(string title, string year,string rated,string runtime,string genre,string director,string actors,string plot,string language,string poster)
         {
             newDetail = new Detail()
             {

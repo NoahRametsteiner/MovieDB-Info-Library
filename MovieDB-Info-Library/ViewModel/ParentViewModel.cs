@@ -48,22 +48,13 @@ namespace MovieDB_Info_Library.ViewModel
 
             Logout = new RelayCommand(e =>
             {
-
                 LoginScreen signIn = new LoginScreen();
                 Application.Current.Windows[0].Close();
                 signIn.ShowDialog();
-
-                /*
-                var w = Application.Current.Windows[0];
-                w.Hide();
-                w.Close();
-                LoginScreen signIn = new LoginScreen();
-                signIn.ShowDialog();
-                */
             });
             Exit = new RelayCommand(e =>
             {
-                //Application.Exit();
+
             });
         }
 

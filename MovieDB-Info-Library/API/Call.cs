@@ -19,7 +19,7 @@ namespace MovieDB_Info_Library.API
         private const string APIKey = "?apikey=17c4065b";
         
         public static string MovieTitle { get; set; }
-        public static int MovieYear { get; set; }
+        public static string MovieYear { get; set; }
         public static string MovieRated { get; set; }
         public static string MovieRuntime { get; set; }
         public static string MovieGenre { get; set; }

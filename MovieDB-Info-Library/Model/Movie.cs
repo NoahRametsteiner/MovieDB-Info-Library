@@ -10,7 +10,7 @@ namespace MovieDB_Info_Library.Model
     {
         public string imdbID;
         public string Title;
-        public int Year;
+        public string Year;
         public string Rated;
         public string Runtime;
         public string Genre;

@@ -40,6 +40,7 @@ namespace MovieDB_Info_Library.View
                 ContentControl1.Content = Search;
 
             }
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

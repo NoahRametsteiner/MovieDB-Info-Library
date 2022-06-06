@@ -31,22 +31,8 @@
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-
-        <!--<ListView Name="ListView1"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding ImdbID}"
-                        Header="ImDb" />
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding Title}"
-                        Header="Name" />
-                </GridView>
-            </ListView.View>
-        </ListView>-->
-
         <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-            <DataGrid Name="ListView1" AutoGenerateColumns="False">
+            <DataGrid Name="ListView1" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="ImdbID" Binding="{Binding ImdbID}" />
@@ -59,7 +45,7 @@
 
 
         <Button Grid.Row="0" Grid.Column="3" 
-            Command="{Binding Path =CallDetail}"
+            Command="{Binding Path = CallFavDetail}"
             Foreground="#2F2F2F"
             Background="#FFCB75"
             Style="{StaticResource MaterialDesignRaisedButton}"

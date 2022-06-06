@@ -17,16 +17,11 @@ namespace MovieDB_Info_Library.View
     /// <summary>
     /// Interaktionslogik für MovieDeatail.xaml
     /// </summary>
-    public partial class MovieDeatail : Window
+    public partial class MovieDeatail
     {
         public MovieDeatail()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

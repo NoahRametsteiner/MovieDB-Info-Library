@@ -23,7 +23,7 @@
         <Border Background="#2F2F2F" CornerRadius="20" Margin="20">
             <StackPanel Margin="8">
                 <Label Content="Login to library" Foreground="#F6F6F6" FontSize="25" HorizontalAlignment="Center"/>
-                <Label Content="Email" Foreground="#F6F6F6"/>
+                <Label Content="Username" Foreground="#F6F6F6"/>
                 <TextBox Text="{Binding Path=Email}" Foreground="#F6F6F6" FontSize="14" />
                 <Label Content="Password" Foreground="#F6F6F6"/>
                 <PasswordBox Password="" PasswordChanged="Pw_Change" Foreground="#F6F6F6" FontSize="14" />
