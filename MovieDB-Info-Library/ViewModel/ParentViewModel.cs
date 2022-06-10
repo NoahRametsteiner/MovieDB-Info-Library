@@ -20,6 +20,10 @@ namespace MovieDB_Info_Library.ViewModel
         private string userLogedIn;
         private object _currentPage;
 
+        public static int CurrentUserID { get; set; }
+
+
+
         public string UserLogedIn
         {
             get => userLogedIn;
@@ -39,7 +43,7 @@ namespace MovieDB_Info_Library.ViewModel
             }
         }
 
-        public static int CurrentUserID { get; set; }
+        
 
         public ParentViewModel()
         {

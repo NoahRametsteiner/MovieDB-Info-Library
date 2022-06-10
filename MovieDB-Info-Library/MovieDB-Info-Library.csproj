@@ -125,14 +125,9 @@
     </ApplicationDefinition>
     <Compile Include="API\Call.cs" />
     <Compile Include="Model\Detail.cs" />
-    <Compile Include="Model\FavContext.cs" />
-    <Compile Include="Model\FavInitializer.cs" />
-    <Compile Include="Model\FavListe.cs" />
     <Compile Include="Model\Movie.cs" />
-    <Compile Include="Model\Fav.cs" />
     <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="ViewModel\MessageBoxButtons.cs" />
     <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\ParentViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />

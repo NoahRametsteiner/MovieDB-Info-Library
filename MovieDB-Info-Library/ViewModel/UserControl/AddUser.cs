@@ -41,7 +41,7 @@ namespace MovieDB_Info_Library.ViewModel
 
             //https://www.codegrepper.com/code-examples/csharp/select+mysql+c%23
             //https://zetcode.com/csharp/mysql/
-            //Login to DB And Get New UID
+            //Get New UID
             sqlstatment = "select * from user";
             var getuid = new MySqlCommand(sqlstatment, Connection);
             MySqlDataReader reader = getuid.ExecuteReader();
@@ -49,7 +49,7 @@ namespace MovieDB_Info_Library.ViewModel
             UID++;
             reader.Close();
 
-            //Login To DB And Add New User
+            //Add New User
             var cmd = new MySqlCommand();
             cmd.Connection = Connection;
 

@@ -13,11 +13,12 @@ namespace MovieDB_Info_Library.API
 {
     class Call
     {
-        public static Movie movie { get; set; }
-        public static Movie year { get; set; }
+
         private const string URL = "https://www.omdbapi.com/";
         private const string APIKey = "?apikey=17c4065b";
-        
+
+        public static Movie movie { get; set; }
+        public static Movie year { get; set; }
         public static string MovieTitle { get; set; }
         public static string MovieYear { get; set; }
         public static string MovieRated { get; set; }
@@ -40,6 +41,7 @@ namespace MovieDB_Info_Library.API
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(URL);
             urlParameters = APIKey + Search + Title;
+
             // Add an Accept header for JSON format.
             client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
@@ -72,7 +74,6 @@ namespace MovieDB_Info_Library.API
             // Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
             client.Dispose();
             return movie;
-            
         }
 
     }

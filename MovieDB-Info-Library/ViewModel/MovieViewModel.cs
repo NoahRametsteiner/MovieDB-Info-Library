@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using MovieDB_Info_Library.ViewModel;
 using MovieDB_Info_Library.API;
 using MovieDB_Info_Library.Model;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Collections.ObjectModel;
 using MovieDB_Info_Library.View;
-using MySql.Data.MySqlClient;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -20,25 +13,13 @@ namespace MovieDB_Info_Library.ViewModel
     {
         #region Declarations
 
+        //IComands
         public ICommand CallCommand { get; set; }
-
-        public ICommand MainPageCommand { get; set; }
-        public ICommand FavPageCommand { get; set; }
         public ICommand CallDetail { get; set; }
         public ICommand CallFavDetail { get; set; }
 
-        public FavListe favList;
-        public FavListe FavList {
-            get => favList;
-            set
-            {
-                favList = value;
-                RaisePropertyChanged(nameof(FavList));
-            }
-        }
+        //
         public Boolean flag;
-        public static string SearchTitle { get; set; }
-        Movie Result { get; set; }
         private string resultimdbID;
         private string resultTitle;
         private string resultYear;
@@ -50,8 +31,14 @@ namespace MovieDB_Info_Library.ViewModel
         private string resultPlot;
         private string resultLanguage;
         private string resultPoster;
+        private static Detail NewDetail;
+        public static string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
 
+        //GetterSetter
+        Movie Result { get; set; }
         public static string selectedMovie { get; set; }
+        public static Movie ResultMovie { get; set; }
+        public static string SearchTitle { get; set; }
 
 
         public string ResultimdbID
@@ -152,7 +139,6 @@ namespace MovieDB_Info_Library.ViewModel
                 RaisePropertyChanged(nameof(ResultPoster));
             }
         }
-        private static Detail NewDetail;
         public static Detail newDetail
         {
             get => NewDetail;
@@ -162,18 +148,10 @@ namespace MovieDB_Info_Library.ViewModel
               
             }
         }
-
-        public static Movie ResultMovie { get; set; }
-        public static string DBLogin = @"server=sql3.freesqldatabase.com;userid=sql3496579;password=zQdQ2FdWqU;database=sql3496579";
         #endregion
-
 
         public MovieViewModel()
         {
-
-            var ctx = new FavContext();
-            FavList = FavListe.ConvertFromList(ctx.Favs.ToList());
-
             //Call API
             CallCommand = new RelayCommand(e =>
                 {
@@ -188,33 +166,14 @@ namespace MovieDB_Info_Library.ViewModel
                     ResultPlot = ResultMovie.Plot;
                     ResultLanguage = ResultMovie.Language;
                     ResultPoster = ResultMovie.Poster;
-
                 }
             );
 
-            MainPageCommand = new RelayCommand(e =>
-            {
-
-            });
-            FavPageCommand = new RelayCommand(e =>
-            {
-
-            });
             CallDetail = new RelayCommand(e =>
             {
                 if(SearchTitle != null)
                 {
                     ResultMovie = Call.APICall(SearchTitle);
-                    ResultTitle = ResultMovie.Title;
-                    ResultYear = ResultMovie.Year;
-                    resultRated = ResultMovie.Rated;
-                    ResultRuntime = ResultMovie.Runtime;
-                    ResultGenre = ResultMovie.Genre;
-                    ResultDirector = ResultMovie.Director;
-                    ResultActors = ResultMovie.Actors;
-                    ResultPlot = ResultMovie.Plot;
-                    ResultLanguage = ResultMovie.Language;
-                    ResultPoster = ResultMovie.Poster;
 
                     AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre,
                     ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);
@@ -228,16 +187,6 @@ namespace MovieDB_Info_Library.ViewModel
                 if (selectedMovie !=null)
                 {
                     ResultMovie = Call.APICall(selectedMovie);
-                    ResultTitle = ResultMovie.Title;
-                    ResultYear = ResultMovie.Year;
-                    resultRated = ResultMovie.Rated;
-                    ResultRuntime = ResultMovie.Runtime;
-                    ResultGenre = ResultMovie.Genre;
-                    ResultDirector = ResultMovie.Director;
-                    ResultActors = ResultMovie.Actors;
-                    ResultPlot = ResultMovie.Plot;
-                    ResultLanguage = ResultMovie.Language;
-                    ResultPoster = ResultMovie.Poster;
 
                     AddDetail(ResultMovie.Title, ResultMovie.Year, ResultMovie.Rated, ResultMovie.Runtime, ResultMovie.Genre,
                     ResultMovie.Director, ResultMovie.Actors, ResultMovie.Plot, ResultMovie.Language, ResultMovie.Poster);

@@ -1,15 +1,9 @@
 ﻿using MovieDB_Info_Library.Model;
-using MovieDB_Info_Library.View;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows;
@@ -43,27 +37,33 @@ namespace MovieDB_Info_Library.ViewModel
             NewDetail = new Detail();
             NewDetail = MovieViewModel.newDetail;
 
-            using (WebClient client = new WebClient())
+            try
             {
-                if(NewDetail!=null)
+                using (WebClient client = new WebClient())
                 {
-                    NewDetail.MovieBanner = client.DownloadData(NewDetail.MoviePoster);
-                }
+                    if(NewDetail!=null)
+                    {
+                    
+                            NewDetail.MovieBanner = client.DownloadData(NewDetail.MoviePoster);
+                    
+                    }
 
-            }
-            if (NewDetail != null)
-            {
-                using (var stream = new MemoryStream(NewDetail.MovieBanner))
+                }
+                if (NewDetail != null)
                 {
-                    var bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.StreamSource = stream;
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.EndInit();
-                    bitmap.Freeze();
-                    newDetail.movieBild = bitmap;
+                    using (var stream = new MemoryStream(NewDetail.MovieBanner))
+                    {
+                        var bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.StreamSource = stream;
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.EndInit();
+                        bitmap.Freeze();
+                        newDetail.movieBild = bitmap;
+                    }
                 }
             }
+            catch { }
 
             MainPageCommand = new RelayCommand(e =>
             {

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
-using MovieDB_Info_Library.ViewModel;
 
 namespace MovieDB_Info_Library.ViewModel
 {
@@ -15,10 +9,10 @@ namespace MovieDB_Info_Library.ViewModel
         public static int PasswordCompare(string DBLogin, string Username, string EnterdPassword)
         {
 
-            var Connection1 = new MySqlConnection(DBLogin);
-            Connection1.Open();
+            var Connection = new MySqlConnection(DBLogin);
+            Connection.Open();
             var sqlstatment = $"select * from user where username=\"{Username}\"";
-            var getemail = new MySqlCommand(sqlstatment, Connection1);
+            var getemail = new MySqlCommand(sqlstatment, Connection);
             MySqlDataReader reader = getemail.ExecuteReader();
 
             if (reader.Read())
@@ -30,7 +24,7 @@ namespace MovieDB_Info_Library.ViewModel
                 if (String.Equals(HashedEnterdPassword, (string)reader["password"]))
                 {
                     sqlstatment = $"select uid from user where username=\"{Username}\"";
-                    var getUID = new MySqlCommand(sqlstatment, Connection1);
+                    var getUID = new MySqlCommand(sqlstatment, Connection);
                     reader.Close();
                     reader = getUID.ExecuteReader();
                     reader.Read();
@@ -38,6 +32,7 @@ namespace MovieDB_Info_Library.ViewModel
                 }
             }
             MessageBox.Show("Wrong password or email!", "error");
+            Connection.Close();
             return 0;
         }
     }
