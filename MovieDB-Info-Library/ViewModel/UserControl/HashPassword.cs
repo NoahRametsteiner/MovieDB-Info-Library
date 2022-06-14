@@ -19,7 +19,8 @@ namespace MovieDB_Info_Library.ViewModel
             UTF8Encoding objUtf8 = new UTF8Encoding();
             byte[] hashValue = sha512.ComputeHash(objUtf8.GetBytes(sPassword));
 
-            return Convert.ToBase64String(hashValue);
+            //Convertiert das Passwort in eine Hash der 128 Zeichen lang ist.
+            return (BitConverter.ToString(hashValue)).Replace("-","");
         }
 
 
